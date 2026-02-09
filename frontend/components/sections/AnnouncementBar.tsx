@@ -1,28 +1,28 @@
 import { MANUS } from '@/lib/theme';
-import { ArrowRightIcon } from 'lucide-react-native';
-import { View, Text, TouchableOpacity, Linking } from 'react-native';
+import { SparklesIcon } from 'lucide-react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 export default function AnnouncementBar() {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      onPress={() => Linking.openURL('https://manus.im/blog/manus-joins-meta-for-next-era-of-innovation')}
       style={{
-        backgroundColor: MANUS.glass,
-        paddingHorizontal: 24,
-        paddingVertical: 12,
+        backgroundColor: MANUS.accent,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         borderBottomWidth: 1,
-        borderBottomColor: MANUS.border,
+        borderBottomColor: MANUS.glassBorder,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 4,
+        gap: 8,
       }}
     >
-      <Text style={{ fontSize: 14, fontWeight: '500', lineHeight: 20, color: MANUS.text, textAlign: 'center' }}>
-        Manus is now part of Meta
+      <SparklesIcon size={14} color={MANUS.gold} />
+      <Text style={{ fontSize: 13, fontWeight: '600', color: MANUS.gold, textAlign: 'center' }}>
+        محرك Manus AI - الإصدار الملكي السوري
       </Text>
-      <ArrowRightIcon size={16} color={MANUS.text} strokeWidth={2} />
+      <SparklesIcon size={14} color={MANUS.gold} />
     </TouchableOpacity>
   );
 }

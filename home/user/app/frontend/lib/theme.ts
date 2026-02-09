@@ -1,4 +1,4 @@
-import { DefaultTheme, DarkTheme, type Theme } from '@react-navigation/native';
+import { DarkTheme, type Theme } from '@react-navigation/native';
 
 export const IMPERIAL = {
   background: '#05221a',
@@ -14,6 +14,7 @@ export const IMPERIAL = {
   borderFocus: 'rgba(212, 175, 55, 0.5)',
   accent: 'rgba(212, 175, 55, 0.1)',
   glass: 'rgba(5, 66, 57, 0.85)',
+  glassBorder: 'rgba(212, 175, 55, 0.15)',
   chatShadow: 'rgba(212, 175, 55, 0.08)',
   white: '#edebe0',
   black: '#05221a',
@@ -26,10 +27,19 @@ export const IMPERIAL = {
   forestDeep: '#002623',
   syGreen: '#007A3D',
   syRed: '#CE1126',
+  syWhite: '#FFFFFF',
+  syBlack: '#000000',
   umber: '#6b1f2a',
   success: '#4ade80',
   warning: '#fbbf24',
   error: '#ef4444',
+  chatUser: 'rgba(212, 175, 55, 0.15)',
+  chatUserBorder: 'rgba(212, 175, 55, 0.3)',
+  chatBot: 'rgba(5, 66, 57, 0.9)',
+  chatBotBorder: 'rgba(212, 175, 55, 0.15)',
+  gradientStart: '#05221a',
+  gradientMid: '#0a3d30',
+  gradientEnd: '#054239',
 };
 
 export const MANUS = IMPERIAL;
