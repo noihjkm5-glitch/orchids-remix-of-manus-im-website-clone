@@ -1,10 +1,10 @@
-import { IMPERIAL } from '@/lib/theme';
+import { MANUS } from '@/lib/theme';
 import { Tabs } from 'expo-router';
 import {
   HomeIcon,
   MessageSquareIcon,
-  LayoutDashboardIcon,
-  StoreIcon,
+  LayoutGridIcon,
+  SearchIcon,
   SettingsIcon,
 } from 'lucide-react-native';
 import { Platform } from 'react-native';
@@ -14,59 +14,56 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: IMPERIAL.gold,
-        tabBarInactiveTintColor: IMPERIAL.textTertiary,
+        tabBarActiveTintColor: MANUS.primary,
+        tabBarInactiveTintColor: MANUS.textTertiary,
         tabBarStyle: {
-          backgroundColor: IMPERIAL.cardSolid,
-          borderTopColor: IMPERIAL.border,
+          backgroundColor: MANUS.card,
+          borderTopColor: MANUS.border,
           borderTopWidth: 1,
           height: Platform.OS === 'ios' ? 88 : 64,
           paddingBottom: Platform.OS === 'ios' ? 28 : 8,
           paddingTop: 8,
           elevation: 0,
-          shadowColor: IMPERIAL.gold,
-          shadowOffset: { width: 0, height: -2 },
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
+          shadowColor: 'transparent',
         },
         tabBarLabelStyle: {
           fontSize: 10,
-          fontWeight: '600',
+          fontWeight: '500',
         },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'الرئيسية',
+          title: 'Home',
           tabBarIcon: ({ color, size }) => <HomeIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="chat"
         options={{
-          title: 'المحادثة',
+          title: 'Chat',
           tabBarIcon: ({ color, size }) => <MessageSquareIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="dashboard"
+        name="explore"
         options={{
-          title: 'لوحة التحكم',
-          tabBarIcon: ({ color, size }) => <LayoutDashboardIcon size={size} color={color} />,
+          title: 'Explore',
+          tabBarIcon: ({ color, size }) => <LayoutGridIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="marketplace"
+        name="search"
         options={{
-          title: 'السوق',
-          tabBarIcon: ({ color, size }) => <StoreIcon size={size} color={color} />,
+          title: 'Search',
+          tabBarIcon: ({ color, size }) => <SearchIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'الإعدادات',
+          title: 'Settings',
           tabBarIcon: ({ color, size }) => <SettingsIcon size={size} color={color} />,
         }}
       />

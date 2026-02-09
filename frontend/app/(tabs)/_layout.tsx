@@ -38,35 +38,35 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'الرئيسية',
+          title: '\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629',
           tabBarIcon: ({ color, size }) => <HomeIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="chat"
         options={{
-          title: 'المحادثة',
+          title: '\u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629',
           tabBarIcon: ({ color, size }) => <MessageSquareIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="dashboard"
         options={{
-          title: 'لوحة التحكم',
+          title: '\u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u062d\u0643\u0645',
           tabBarIcon: ({ color, size }) => <LayoutDashboardIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="marketplace"
         options={{
-          title: 'السوق',
+          title: '\u0627\u0644\u0633\u0648\u0642',
           tabBarIcon: ({ color, size }) => <StoreIcon size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'الإعدادات',
+          title: '\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a',
           tabBarIcon: ({ color, size }) => <SettingsIcon size={size} color={color} />,
         }}
       />

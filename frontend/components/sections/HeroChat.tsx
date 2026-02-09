@@ -1,86 +1,69 @@
-import GoldenEagle from '@/components/icons/GoldenEagle';
-import { IMPERIAL } from '@/lib/theme';
+import { MANUS } from '@/lib/theme';
 import {
   ArrowUpIcon,
   PlusIcon,
-  CodeIcon,
+  SmartphoneIcon,
+  MonitorIcon,
   GlobeIcon,
-  BrainCircuitIcon,
-  FileTextIcon,
+  PaletteIcon,
 } from 'lucide-react-native';
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Platform } from 'react-native';
 
 const suggestionTags = [
-  { icon: CodeIcon, label: 'بناء تطبيق' },
-  { icon: GlobeIcon, label: 'إنشاء موقع' },
-  { icon: BrainCircuitIcon, label: 'تحليل بيانات' },
-  { icon: FileTextIcon, label: 'كتابة محتوى' },
+  { icon: MonitorIcon, label: 'Create slides' },
+  { icon: GlobeIcon, label: 'Build website' },
+  { icon: SmartphoneIcon, label: 'Develop apps' },
+  { icon: PaletteIcon, label: 'Design' },
 ];
 
 export default function HeroChat() {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <View style={{ alignItems: 'center', paddingHorizontal: 16, marginTop: 32 }}>
-      <GoldenEagle size={80} />
-
+    <View style={{ alignItems: 'center', paddingHorizontal: 16, marginTop: 60 }}>
       <Text
         style={{
           fontFamily: Platform.OS === 'web' ? 'Georgia, serif' : undefined,
-          fontSize: 28,
-          color: IMPERIAL.gold,
-          fontWeight: '700',
+          fontSize: 32,
+          color: MANUS.text,
+          fontWeight: '400',
           textAlign: 'center',
           lineHeight: 40,
-          marginTop: 16,
-          marginBottom: 6,
+          marginBottom: 32,
         }}
       >
-        سوريا AI
-      </Text>
-      <Text
-        style={{
-          fontSize: 15,
-          color: IMPERIAL.textTertiary,
-          textAlign: 'center',
-          marginBottom: 28,
-          lineHeight: 22,
-        }}
-      >
-        مساعدك الذكي — كيف يمكنني مساعدتك اليوم؟
+        What can I do for you?
       </Text>
 
       <View style={{ width: '100%', maxWidth: 768 }}>
         <View
           style={{
-            backgroundColor: IMPERIAL.card,
-            borderRadius: 20,
+            backgroundColor: MANUS.card,
+            borderRadius: 22,
             borderWidth: 1,
-            borderColor: IMPERIAL.border,
-            minHeight: 130,
-            shadowColor: IMPERIAL.gold,
-            shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.08,
-            shadowRadius: 20,
-            elevation: 2,
+            borderColor: MANUS.border,
+            minHeight: 140,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 12 },
+            shadowOpacity: 0.02,
+            shadowRadius: 32,
+            elevation: 1,
           }}
         >
-          <View style={{ paddingHorizontal: 16, paddingTop: 14, minHeight: 70 }}>
+          <View style={{ paddingHorizontal: 16, paddingTop: 12, minHeight: 80 }}>
             <TextInput
-              placeholder="أسند مهمة أو اسأل أي سؤال..."
-              placeholderTextColor={IMPERIAL.textTertiary}
+              placeholder="Assign a task or ask anything"
+              placeholderTextColor={MANUS.textTertiary}
               value={inputValue}
               onChangeText={setInputValue}
               multiline
               style={{
                 fontSize: 15,
                 lineHeight: 24,
-                color: IMPERIAL.text,
-                minHeight: 50,
+                color: MANUS.text,
+                minHeight: 60,
                 textAlignVertical: 'top',
-                textAlign: 'right',
-                writingDirection: 'rtl',
               }}
             />
           </View>
@@ -96,47 +79,39 @@ export default function HeroChat() {
           >
             <TouchableOpacity
               style={{
-                width: 34,
-                height: 34,
-                borderRadius: 17,
+                width: 32,
+                height: 32,
+                borderRadius: 16,
                 borderWidth: 1,
-                borderColor: IMPERIAL.border,
+                borderColor: MANUS.border,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <PlusIcon size={18} color={IMPERIAL.textSecondary} />
+              <PlusIcon size={18} color={MANUS.textSecondary} />
             </TouchableOpacity>
 
             <TouchableOpacity
               disabled={!inputValue.trim()}
               style={{
-                width: 34,
-                height: 34,
-                borderRadius: 17,
+                width: 32,
+                height: 32,
+                borderRadius: 16,
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: inputValue.trim() ? IMPERIAL.primary : IMPERIAL.accent,
+                backgroundColor: inputValue.trim() ? MANUS.primary : MANUS.accent,
               }}
             >
               <ArrowUpIcon
                 size={16}
                 strokeWidth={3}
-                color={inputValue.trim() ? IMPERIAL.primaryForeground : IMPERIAL.textTertiary}
+                color={inputValue.trim() ? MANUS.primaryForeground : MANUS.textTertiary}
               />
             </TouchableOpacity>
           </View>
         </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            marginTop: 18,
-            gap: 8,
-          }}
-        >
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', marginTop: 20, gap: 8 }}>
           {suggestionTags.map((tag, index) => {
             const Icon = tag.icon;
             return (
@@ -144,22 +119,37 @@ export default function HeroChat() {
                 key={index}
                 activeOpacity={0.7}
                 style={{
-                  height: 38,
+                  height: 40,
                   paddingHorizontal: 14,
-                  borderRadius: 19,
+                  borderRadius: 20,
                   borderWidth: 1,
-                  borderColor: IMPERIAL.border,
+                  borderColor: MANUS.border,
                   flexDirection: 'row',
                   alignItems: 'center',
-                  gap: 6,
-                  backgroundColor: IMPERIAL.glass,
+                  gap: 8,
+                  backgroundColor: 'rgba(255,255,255,0.3)',
                 }}
               >
-                <Icon size={16} color={IMPERIAL.gold} />
-                <Text style={{ fontSize: 13, color: IMPERIAL.text }}>{tag.label}</Text>
+                <Icon size={18} color={MANUS.textSecondary} />
+                <Text style={{ fontSize: 14, color: MANUS.text }}>{tag.label}</Text>
               </TouchableOpacity>
             );
           })}
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{
+              height: 40,
+              paddingHorizontal: 14,
+              borderRadius: 20,
+              borderWidth: 1,
+              borderColor: MANUS.border,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'rgba(255,255,255,0.3)',
+            }}
+          >
+            <Text style={{ fontSize: 14, color: MANUS.text }}>More</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

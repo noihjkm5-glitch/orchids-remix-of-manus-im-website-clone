@@ -1,44 +1,14 @@
-import GoldenEagle from '@/components/icons/GoldenEagle';
-import { IMPERIAL } from '@/lib/theme';
-import {
-  ChevronLeftIcon,
-  UserIcon,
-  BellIcon,
-  ShieldIcon,
-  CircleHelpIcon,
-  LogOutIcon,
-  PaletteIcon,
-  GlobeIcon,
-  KeyIcon,
-  SmartphoneIcon,
-} from 'lucide-react-native';
+import { MANUS } from '@/lib/theme';
+import { ChevronRightIcon, UserIcon, BellIcon, ShieldIcon, CircleHelpIcon, LogOutIcon } from 'lucide-react-native';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
 
-const settingsGroups = [
-  {
-    title: 'الحساب',
-    items: [
-      { icon: UserIcon, label: 'الملف الشخصي', subtitle: 'الاسم، البريد الإلكتروني' },
-      { icon: KeyIcon, label: 'كلمة المرور', subtitle: 'تغيير كلمة المرور' },
-      { icon: ShieldIcon, label: 'المصادقة الثنائية', subtitle: '2FA · OAuth2', badge: 'مفعّل' },
-    ],
-  },
-  {
-    title: 'التفضيلات',
-    items: [
-      { icon: BellIcon, label: 'الإشعارات', subtitle: 'إشعارات الدفع والبريد' },
-      { icon: PaletteIcon, label: 'المظهر', subtitle: 'الثيم الملكي السوري' },
-      { icon: GlobeIcon, label: 'اللغة', subtitle: 'العربية' },
-      { icon: SmartphoneIcon, label: 'الأجهزة', subtitle: 'إدارة الأجهزة المتصلة' },
-    ],
-  },
-  {
-    title: 'الدعم',
-    items: [
-      { icon: CircleHelpIcon, label: 'مركز المساعدة', subtitle: 'الأسئلة الشائعة والدعم' },
-    ],
-  },
+const settingsItems = [
+  { icon: UserIcon, label: 'Account', subtitle: 'Profile, email, password' },
+  { icon: BellIcon, label: 'Notifications', subtitle: 'Push, email alerts' },
+  { icon: ShieldIcon, label: 'Privacy & Security', subtitle: 'Data, permissions' },
+  { icon: CircleHelpIcon, label: 'Help & Support', subtitle: 'FAQ, contact us' },
 ];
 
 export default function SettingsScreen() {
@@ -47,143 +17,109 @@ export default function SettingsScreen() {
   return (
     <ScrollView
       className="flex-1"
-      style={{ backgroundColor: IMPERIAL.background }}
-      contentContainerStyle={{ paddingTop: insets.top + 8, paddingBottom: 40 }}
-      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: MANUS.background }}
+      contentContainerStyle={{ paddingTop: insets.top + 12, paddingBottom: 40 }}
     >
-      <View style={{ paddingHorizontal: 16, marginBottom: 20 }}>
-        <Text style={{ fontSize: 22, fontWeight: '700', color: IMPERIAL.gold, textAlign: 'right' }}>
-          الإعدادات
-        </Text>
+      <View style={{ paddingHorizontal: 16, marginBottom: 24 }}>
+        <Text style={{ fontSize: 24, fontWeight: '700', color: MANUS.text }}>Settings</Text>
       </View>
 
       <View style={{ paddingHorizontal: 16, marginBottom: 24 }}>
         <View
           style={{
-            backgroundColor: IMPERIAL.card,
+            backgroundColor: MANUS.card,
             borderRadius: 16,
             borderWidth: 1,
-            borderColor: IMPERIAL.border,
+            borderColor: MANUS.border,
             padding: 16,
             flexDirection: 'row',
             alignItems: 'center',
             gap: 12,
           }}
         >
-          <ChevronLeftIcon size={18} color={IMPERIAL.textTertiary} />
-          <View style={{ flex: 1, alignItems: 'flex-end' }}>
-            <Text style={{ fontSize: 16, fontWeight: '600', color: IMPERIAL.text }}>مستخدم سوريا AI</Text>
-            <Text style={{ fontSize: 12, color: IMPERIAL.textTertiary }}>user@syria-ai.com</Text>
-          </View>
           <View
             style={{
               width: 48,
               height: 48,
               borderRadius: 24,
-              backgroundColor: IMPERIAL.accent,
-              borderWidth: 1,
-              borderColor: IMPERIAL.border,
+              backgroundColor: MANUS.accent,
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <GoldenEagle size={30} />
+            <Svg height={24} width={18} viewBox="0 0 24 32">
+              <Path
+                d="M12 2C10.9 2 10 2.9 10 4V16.38L7.91 14.12C7.54 13.72 6.89 13.7 6.47 14.07C6.06 14.44 6.04 15.09 6.4 15.5L10.67 20.12C11.5 21.03 12.63 21.5 13.79 21.5H18C19.1 21.5 20 20.6 20 19.5V7C20 5.9 19.1 5 18 5C17.72 5 17.5 5.22 17.5 5.5V11H16.5V3C16.5 1.9 15.6 1 14.5 1C13.4 1 12.5 1.9 12.5 3V11H12V2Z"
+                fill={MANUS.text}
+              />
+            </Svg>
           </View>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 16, fontWeight: '600', color: MANUS.text }}>Manus User</Text>
+            <Text style={{ fontSize: 13, color: MANUS.textTertiary }}>user@manus.im</Text>
+          </View>
+          <ChevronRightIcon size={20} color={MANUS.textTertiary} />
         </View>
       </View>
 
-      {settingsGroups.map((group) => (
-        <View key={group.title} style={{ paddingHorizontal: 16, marginBottom: 20 }}>
-          <Text
-            style={{
-              fontSize: 13,
-              fontWeight: '700',
-              color: IMPERIAL.gold,
-              textAlign: 'right',
-              marginBottom: 8,
-              paddingRight: 4,
-            }}
-          >
-            {group.title}
-          </Text>
-          <View
-            style={{
-              backgroundColor: IMPERIAL.card,
-              borderRadius: 14,
-              borderWidth: 1,
-              borderColor: IMPERIAL.border,
-              overflow: 'hidden',
-            }}
-          >
-            {group.items.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <TouchableOpacity
-                  key={item.label}
-                  activeOpacity={0.7}
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    padding: 14,
-                    gap: 10,
-                    borderBottomWidth: index < group.items.length - 1 ? 1 : 0,
-                    borderBottomColor: IMPERIAL.border,
-                  }}
-                >
-                  <ChevronLeftIcon size={16} color={IMPERIAL.textTertiary} />
-                  {'badge' in item && item.badge && (
-                    <View
-                      style={{
-                        paddingHorizontal: 8,
-                        paddingVertical: 2,
-                        borderRadius: 6,
-                        backgroundColor: 'rgba(74, 222, 128, 0.15)',
-                      }}
-                    >
-                      <Text style={{ fontSize: 10, fontWeight: '600', color: IMPERIAL.success }}>
-                        {item.badge}
-                      </Text>
-                    </View>
-                  )}
-                  <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                    <Text style={{ fontSize: 14, fontWeight: '500', color: IMPERIAL.text }}>{item.label}</Text>
-                    <Text style={{ fontSize: 11, color: IMPERIAL.textTertiary, marginTop: 1 }}>
-                      {item.subtitle}
-                    </Text>
-                  </View>
-                  <Icon size={18} color={IMPERIAL.gold} />
-                </TouchableOpacity>
-              );
-            })}
-          </View>
+      <View style={{ paddingHorizontal: 16, marginBottom: 24 }}>
+        <View
+          style={{
+            backgroundColor: MANUS.card,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: MANUS.border,
+            overflow: 'hidden',
+          }}
+        >
+          {settingsItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <TouchableOpacity
+                key={item.label}
+                activeOpacity={0.7}
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  padding: 16,
+                  gap: 12,
+                  borderBottomWidth: index < settingsItems.length - 1 ? 1 : 0,
+                  borderBottomColor: MANUS.border,
+                }}
+              >
+                <Icon size={20} color={MANUS.textSecondary} />
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '500', color: MANUS.text }}>{item.label}</Text>
+                  <Text style={{ fontSize: 12, color: MANUS.textTertiary }}>{item.subtitle}</Text>
+                </View>
+                <ChevronRightIcon size={18} color={MANUS.textTertiary} />
+              </TouchableOpacity>
+            );
+          })}
         </View>
-      ))}
+      </View>
 
-      <View style={{ paddingHorizontal: 16, marginBottom: 20 }}>
+      <View style={{ paddingHorizontal: 16 }}>
         <TouchableOpacity
           activeOpacity={0.7}
           style={{
-            backgroundColor: IMPERIAL.card,
-            borderRadius: 14,
+            backgroundColor: MANUS.card,
+            borderRadius: 16,
             borderWidth: 1,
-            borderColor: 'rgba(239, 68, 68, 0.3)',
-            padding: 14,
+            borderColor: MANUS.border,
+            padding: 16,
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: 8,
+            gap: 12,
           }}
         >
-          <Text style={{ fontSize: 14, fontWeight: '600', color: '#EF4444' }}>تسجيل الخروج</Text>
-          <LogOutIcon size={18} color="#EF4444" />
+          <LogOutIcon size={20} color="#EF4444" />
+          <Text style={{ fontSize: 15, fontWeight: '500', color: '#EF4444' }}>Sign Out</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={{ alignItems: 'center', paddingVertical: 12 }}>
-        <GoldenEagle size={24} />
-        <Text style={{ fontSize: 11, color: IMPERIAL.textTertiary, marginTop: 4 }}>
-          سوريا AI v1.0.0
-        </Text>
+      <View style={{ paddingHorizontal: 16, marginTop: 24, alignItems: 'center' }}>
+        <Text style={{ fontSize: 12, color: MANUS.textTertiary }}>Manus v1.0.0</Text>
       </View>
     </ScrollView>
   );

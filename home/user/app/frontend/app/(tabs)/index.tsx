@@ -1,10 +1,9 @@
-import AgentLoop from '@/components/sections/AgentLoop';
 import AnnouncementBar from '@/components/sections/AnnouncementBar';
 import FeatureGrid from '@/components/sections/FeatureGrid';
 import Footer from '@/components/sections/Footer';
 import HeroChat from '@/components/sections/HeroChat';
 import Navbar from '@/components/sections/Navbar';
-import { IMPERIAL } from '@/lib/theme';
+import { MANUS } from '@/lib/theme';
 import { ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 
 export default function HomeScreen() {
@@ -12,7 +11,7 @@ export default function HomeScreen() {
     <KeyboardAvoidingView
       className="flex-1"
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ backgroundColor: IMPERIAL.background }}
+      style={{ backgroundColor: MANUS.background }}
     >
       <ScrollView
         className="flex-1"
@@ -22,7 +21,6 @@ export default function HomeScreen() {
         <Navbar />
         <AnnouncementBar />
         <HeroChat />
-        <AgentLoop />
         <FeatureGrid />
         <Footer />
       </ScrollView>
